@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: say-hi-cron
+spec:
+  schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            parent: "seyhi-cron"
+        spec:
+          containers:
+            - name: sey-hi-job
+              image: docker-registry.default.svc:5000/******/mypy-base-image:latest
+              command: ["python",  "main.py"]
+          restartPolicy: OnFailure

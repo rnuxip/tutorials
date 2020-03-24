@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: mypy-job
+  name: say-hi-job
 spec:
   parallelism: 1    
   completions: 1    
   template:         
     metadata:
-      name: mypi-job
+      name: sey-hi-job
     spec:
       containers:
-      - name: mypy-job
-        image: 	docker-registry.default.svc:5000/brain-analytics-omega-dev/mypy-base-image:latest
+      - name: say-hi-job
+        image: 	docker-registry.default.svc:5000/********/mypy-base-image:latest
         command: ["python",  "main.py"]
       restartPolicy: OnFailure
