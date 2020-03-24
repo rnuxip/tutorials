@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: mypy-job
-        image: 	docker-registry.default.svc:5000/brain-analytics-omega-dev/mypy:latest
+        image: 	docker-registry.default.svc:5000/brain-analytics-omega-dev/mypy-base-image:latest
         command: ["python",  "main.py"]
       restartPolicy: OnFailure
